@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+  <head><link href="../static/style.css" type="text/css" rel="stylesheet"></head>
+  <div class="container">
+    <div class="jumbotron" id="forms">
+    <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      <h3>Registration Form</h3><br>
+      <div class="form-group">
+        <div class="form-wrapper">
+          {{ form.email.label }}
+          {{ form.email(class="form-control") }}
+        </div>  
+        <div class="form-wrapper">
+          {{ form.username.label }}
+          {{ form.username(class="form-control") }}
+        </div>
+        <div class="form-wrapper">
+          {{ form.password.label }}
+          {{ form.password(class="form-control") }}
+        </div>
+        <div class="form-wrapper">
+          {{ form.pass_confirm.label }}
+          {{ form.pass_confirm(class="form-control") }}
+        </div><br>
+        <div class="checkbox">
+        <label>
+          <input type="checkbox"> I accept the Terms of Use & Privacy Policy.
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      {{ form.submit(class="btn btn-lg") }}
+    </form>
+  </div>
+</div>
+</body>
+
+{% endblock %}
